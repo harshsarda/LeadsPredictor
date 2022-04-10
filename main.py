@@ -33,9 +33,13 @@ logger = get_logger()
 
 with open("./config/config.yaml", "r") as yaml_file:
     yaml_read = yaml.safe_load(yaml_file)
+
 model_path = os.path.join(".", yaml_read["model_path"])
 feature_transformers_path = os.path.join(".", yaml_read["feature_transformers_path"])
 model_cols = yaml_read["model_cols"]
+
+logger.format("num model cols: {}".format(len(model_cols)))
+logger.format("model cols: {}".format("".join(model_cols)))
 
 with (open("model_path", "rb")) as openfile:
     model_obj = pickle.load(openfile)

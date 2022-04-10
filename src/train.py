@@ -4,8 +4,7 @@ import os
 import sys
 import pickle
 
-
-sys.path.append("/ml_auto/")
+sys.path.append("./ml_auto/")
 
 from data_utils import OHE, CatNumAgg, FreqEnc, gen_cat_cat
 from custom_estimator import Estimator
