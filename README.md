@@ -1,4 +1,4 @@
-# LeadPredictor
+# LeadsPredictor
 This repository contains a leads per opening prediction model for a sample job (posting) marketplace data 
 
 **Instructions:**
