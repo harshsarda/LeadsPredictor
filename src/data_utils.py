@@ -1,5 +1,4 @@
 import pandas as pd
-from sklearn.preprocessing import OneHotEncoder
 
 
 def get_derived_cat(df, a, b):
@@ -8,8 +7,6 @@ def get_derived_cat(df, a, b):
 
 
 def gen_cat_cat(df):
-    df = get_derived_cat(df, "category", "organization")
-    df = get_derived_cat(df, "category", "area")
     df = get_derived_cat(df, "category", "city")
     df = get_derived_cat(df, "category", "dow")
     return df
@@ -32,33 +29,6 @@ class FreqEnc:
     def fit_transform(self, df):
         self.fit(df)
         return self.transform(df)
-
-
-class OHE:
-    def __init__(self, ohe_cols):
-        self.ohe_cols = ohe_cols
-        self.ohe = OneHotEncoder(sparse=False, handle_unknown="ignore")
-
-    def fit(self, df):
-        self.ohe.fit(df[self.ohe_cols])
-
-    def transform(self, df):
-        temp = self.ohe.fit_transform(df[self.ohe_cols])
-        temp = pd.DataFrame(
-            temp,
-            columns=[
-                self.ohe_cols[i] + "_" + str(j) + "_ohe"
-                for i in range(len(self.ohe_cols))
-                for j in self.ohe.categories_[i]
-            ],
-        )
-        df = pd.concat([df, temp], axis=1)
-        return df
-
-    def fit_transform(self, df):
-        self.fit(df)
-        return self.transform(df)
-
 
 class CatNumAgg:
     def __init__(self, cat_num_agg_dict):
