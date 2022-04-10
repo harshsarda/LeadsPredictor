@@ -27,6 +27,6 @@ class LeadPredictor:
                 processed_data.shape[0], processed_data.shape[1]
             )
         )
-        preds = get_predictions(self.models, processed_data)
-        self.logger.info("preds shape: {}".format(preds.shape[0]))
+        preds = get_predictions(self.models, processed_data).tolist()
+        self.logger.info("preds shape: {}".format(len(preds)))
         return self.get_response_dict(preds)

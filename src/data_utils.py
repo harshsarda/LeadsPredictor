@@ -30,6 +30,7 @@ class FreqEnc:
         self.fit(df)
         return self.transform(df)
 
+
 class CatNumAgg:
     def __init__(self, cat_num_agg_dict):
         self.cat_num_agg_dict = cat_num_agg_dict

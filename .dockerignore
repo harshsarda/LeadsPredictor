@@ -4,5 +4,6 @@
 # ignore all markdown files (md) beside all README*.md
 *.md
 !README*.md
-# ignore data folder
+# ignore data and notebooks folder
 data
+notebooks

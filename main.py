@@ -3,7 +3,7 @@ import yaml
 import os
 import sys
 from typing import List
-from fastapi import FastAPI, Request
+from fastapi import FastAPI
 from pydantic import BaseModel
 
 from src.lead_predictor import LeadPredictor
@@ -62,6 +62,5 @@ app = FastAPI()
 
 @app.post("/items/")
 async def get_leads_for_job_posting(item: ModelRequest):
-
     response_dict = lead_predictor.run(data_dict=item.dict())
     return response_dict

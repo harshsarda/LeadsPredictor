@@ -84,11 +84,11 @@ cat_num_agg_dict = {
     },
     "organization": {
         "applicant_location": ["std"],
-        "min_salary": ["median","std"],
+        "min_salary": ["median", "std"],
     },
     "city": {
         "applicant_location": ["std"],
-    }, 
+    },
     "category_dow": {
         "max_salary": ["mean"],
     },
@@ -99,33 +99,44 @@ df = catnumagg.fit_transform(df)
 
 print(df.shape)
 
-model_cols = ['applicant_location',
- 'applicant_location_mean_grpby_and_category_city',
- 'applicant_location_std_grpby_and_area',
- 'applicant_location_std_grpby_and_category',
- 'applicant_location_std_grpby_and_city',
- 'applicant_location_std_grpby_and_organization',
- 'category_fe',
- 'education',
- 'education_mean_grpby_and_category',
- 'education_std_grpby_and_area',
- 'education_std_grpby_and_category_city',
- 'english',
- 'gender_fe',
- 'max_salary',
- 'max_salary_mean_grpby_and_category_dow',
- 'max_salary_median_grpby_and_area',
- 'max_salary_median_grpby_and_category_city',
- 'min_salary_median_grpby_and_organization',
- 'min_salary_std_grpby_and_organization',
- 'num_openings',
- 'num_openings_std_grpby_and_area',
- 'num_openings_std_grpby_and_category_city',
- 'organization_fe']
+model_cols = [
+    "applicant_location",
+    "applicant_location_mean_grpby_and_category_city",
+    "applicant_location_std_grpby_and_area",
+    "applicant_location_std_grpby_and_category",
+    "applicant_location_std_grpby_and_city",
+    "applicant_location_std_grpby_and_organization",
+    "category_fe",
+    "education",
+    "education_mean_grpby_and_category",
+    "education_std_grpby_and_area",
+    "education_std_grpby_and_category_city",
+    "english",
+    "gender_fe",
+    "max_salary",
+    "max_salary_mean_grpby_and_category_dow",
+    "max_salary_median_grpby_and_area",
+    "max_salary_median_grpby_and_category_city",
+    "min_salary_median_grpby_and_organization",
+    "min_salary_std_grpby_and_organization",
+    "num_openings",
+    "num_openings_std_grpby_and_area",
+    "num_openings_std_grpby_and_category_city",
+    "organization_fe",
+]
 
-params = {'boosting_type': 'gbdt', 'colsample_bytree': 0.8, 'learning_rate': 0.1,
-          'min_child_samples': 90, 'n_estimators': 10000, 'n_jobs': -1, 'num_leaves': 16,
-          'objective': 'regression', 'subsample': 1.0, 'subsample_freq': 10}
+params = {
+    "boosting_type": "gbdt",
+    "colsample_bytree": 0.8,
+    "learning_rate": 0.1,
+    "min_child_samples": 90,
+    "n_estimators": 10000,
+    "n_jobs": -1,
+    "num_leaves": 16,
+    "objective": "regression",
+    "subsample": 1.0,
+    "subsample_freq": 10,
+}
 
 est = Estimator(
     model=LGBMRegressor(**params),
