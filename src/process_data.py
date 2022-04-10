@@ -1,6 +1,6 @@
 import pandas as pd
 
-from data_utils import gen_cat_cat
+from .data_utils import gen_cat_cat
 
 
 class DataProcessing:

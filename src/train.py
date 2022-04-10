@@ -15,22 +15,7 @@ DATA_DIR = "../data/"
 df = pd.read_excel(os.path.join(DATA_DIR, "data.xlsx"), sheet_name=0)
 df.shape
 
-
 df.drop("feebackgiven", axis=1, inplace=True)
-
-
-num_cols = [
-    "leads_per_opening",
-    "max_salary",
-    "min_salary",
-    "deposit",
-    "num_openings",
-    "created_on",
-]
-cat_cols = [i for i in df.columns.tolist() if i not in num_cols]
-cat_ordinal_cols = ["applicant_location", "english", "education"]
-cat_non_ord_cols = [i for i in cat_cols if i not in cat_ordinal_cols]
-
 
 df = df.sort_values("created_on").reset_index(drop=True)
 df["target"] = np.log1p(df.leads_per_opening)
@@ -65,7 +50,6 @@ folds = [
         ].index.tolist(),
     ),
 ]
-
 
 print([(df.iloc[i].shape, df.iloc[j].shape) for i, j in folds])
 

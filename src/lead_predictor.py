@@ -1,5 +1,5 @@
-from process_data import DataProcessing
-from modeling_utils import get_predictions
+from .process_data import DataProcessing
+from .modeling_utils import get_predictions
 
 
 class LeadPredictor:
