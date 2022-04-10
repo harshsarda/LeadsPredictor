@@ -1,0 +1,44 @@
+model_path: model/model.pkl
+feature_transformers_path: feature_transformers/feat_trans.pkl
+model_cols: applicant_location
+   - applicant_location_mean_grpby_and_category_city
+   - applicant_location_min_grpby_and_organization
+   - applicant_location_std_grpby_and_category_dow
+   - applicant_location_std_grpby_and_organization
+   - area_fe
+   - category_area_fe
+   - category_fe
+   - category_organization_fe
+   - created_on
+   - education
+   - education_fe
+   - education_mean_grpby_and_category
+   - education_median_grpby_and_city
+   - education_min_grpby_and_area
+   - education_std_grpby_and_area
+   - education_std_grpby_and_organization
+   - employer_type_3.0_ohe
+   - english
+   - gender_fe
+   - max_salary
+   - max_salary_mean_grpby_and_category
+   - max_salary_min_grpby_and_city
+   - max_salary_std_grpby_and_category
+   - max_salary_std_grpby_and_category_city
+   - max_salary_std_grpby_and_category_dow
+   - min_salary_max_grpby_and_category
+   - min_salary_max_grpby_and_category_city
+   - min_salary_max_grpby_and_organization
+   - min_salary_mean_grpby_and_area
+   - min_salary_mean_grpby_and_category_city
+   - min_salary_std_grpby_and_category_dow
+   - num_openings
+   - num_openings_max_grpby_and_area
+   - num_openings_mean_grpby_and_category_dow
+   - num_openings_mean_grpby_and_city
+   - num_openings_median_grpby_and_category_dow
+   - num_openings_median_grpby_and_city
+   - num_openings_std_grpby_and_area
+   - num_openings_std_grpby_and_category_city
+   - num_openings_std_grpby_and_organization
+   - organization_fe

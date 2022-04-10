@@ -1,0 +1,25 @@
+version: 1
+disable_existing_loggers: False
+formatters:
+  detailed:
+    format: "%(asctime)s - %(name)s - %(levelname)s - [%(filename)s:%(funcName)s:%(lineno)d]\n%(message)s\n"
+    datefmt: "%Y-%m-%d %H:%M:%S"
+  minimal:
+    format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+    datefmt: "%Y-%m-%d %H:%M:%S"
+handlers:
+  info:
+    class: logging.StreamHandler
+    level: DEBUG
+    formatter: minimal
+    stream: ext://sys.stdout
+  error:
+    class: logging.StreamHandler
+    level: ERROR
+    formatter: detailed
+    stream: ext://sys.stderr
+loggers:
+    lead_predictor_logger:
+        level: DEBUG
+        handlers: [info,error]
+        propagate: True
