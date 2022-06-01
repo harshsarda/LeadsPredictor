@@ -18,7 +18,7 @@ print(df.shape)
 df.drop("feebackgiven", axis=1, inplace=True)
 
 df = df.sort_values("created_on").reset_index(drop=True)
-df["target"] = np.log1p(df.leads_per_opening)
+df["target"] = np.log1p(df.leads_per_opening*df.num_openings)
 
 folds = [
     (
